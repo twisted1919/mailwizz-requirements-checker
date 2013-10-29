@@ -1,4 +1,4 @@
 mailwizz-requirements-checker
 =============================
 
-Requirements checker for mailWizz EMA
+Requirements checker for MailWizz EMA
