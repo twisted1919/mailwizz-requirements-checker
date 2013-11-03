@@ -67,6 +67,13 @@ $requirements=array(
 		''
 	),
 	array(
+		'CURL extension',
+		true,
+		extension_loaded('curl') && function_exists('curl_init'),
+		'<a href="http://www.mailwizz.com">MailWizz Core</a>',
+		''
+	),
+	array(
 		'GD extension',
 		true,
 		'' === $message = checkCaptchaSupport(),
