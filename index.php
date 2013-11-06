@@ -15,7 +15,7 @@ require_once MW_INSTALLER_PATH . '/inc/Controller.php';
 $route = getQuery('route');
 
 if (empty($route)) {
-	$route = 'requirements';
+    $route = 'requirements';
 }
 
 $route = str_replace(array('../', '..'), '', $route);
@@ -23,30 +23,30 @@ $route = str_replace(array('../', '..'), '', $route);
 $controller = $action = null;
 
 if (strpos($route, '/') !== false) {
-	$routeParts = explode('/', $route);
-	$routeParts = array_slice($routeParts, 0, 2);
-	list($controller, $action) = $routeParts;
+    $routeParts = explode('/', $route);
+    $routeParts = array_slice($routeParts, 0, 2);
+    list($controller, $action) = $routeParts;
 } else {
-	$controller = $route;
+    $controller = $route;
 }
 
 $controller = formatController($controller);
 if (!empty($action)) {
-	$action = formatAction($action);
+    $action = formatAction($action);
 }
 
 if (!is_file($controllerFile = MW_INSTALLER_PATH . '/controllers/' . $controller . '.php')) {
-	$controller = formatController('requirements');
-	$controllerFile = MW_INSTALLER_PATH . '/controllers/' . $controller . '.php';
+    $controller = formatController('requirements');
+    $controllerFile = MW_INSTALLER_PATH . '/controllers/' . $controller . '.php';
 }
 
 require_once $controllerFile;
 $controller = new $controller();
 
 if (empty($action)) {
-	$action = 'actionIndex';
+    $action = 'actionIndex';
 } elseif (!method_exists($controller, $action)) {
-	$action = 'actionNot_found';
+    $action = 'actionNot_found';
 }
 
 $controller->$action();
